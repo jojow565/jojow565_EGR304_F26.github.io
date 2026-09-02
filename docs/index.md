@@ -4,31 +4,33 @@ tags:
 - tag1
 - tag2
 ---
-<center>
-<font size= "6">(Your Name) Datasheet</font><br>
-as part of<br>
-<font size= "8"> Project Name</font><br>
-for<br>
-<font size= "5"> Team ### </font><br>
 
-**Submission: month, DD, YYYY**
+<center>
+<font size="6">Joseph White Datasheet</font><br>
+as part of<br>
+<font size="8">Project Name</font><br>
+for<br>
+<font size="5">Team ###</font><br>
+
+**Submission: September 2, 2026**
 </center>
 
 ## Introduction
 
-* This needs to be updated so that a reader gets an idea of the purpose of this datasheet.
+This individual datasheet documents my work for EGR 304. It will serve as a living engineering document throughout the semester and will be updated as the project develops.
+
+The datasheet includes information related to the block diagram, component selection, bill of materials, schematic, power budget, and other design work completed during the course.
 
 ### Project Summary
 
-* This needs to be updated to reflect <ins>your version</ins> of the team project, so when shared not via the team's report, the reader gets an idea of the direction of the project and how your work will contribute to the overall success.
-* Add context that ties into the link to your [team report.](https://embedded-systems-design.github.io/EGR304TeamTemplate/)
+This section will describe my version of the EGR 304 team project and explain how my individual work contributes to the overall project.
 
+As the project develops, this section will be updated with additional information about the design, goals, components, and operation of the system.
 
 ### My Contribution
 
-* This needs to be updated to reflect a team introduction
-* Content should also help an unfamiliar reader navigate to areas of interest. Information like:
+This section documents my individual contributions to the team project. It will be updated throughout the semester as I complete design, testing, calculations, documentation, and other assigned project work.
 
-To review the details listed of the material used to construct the subsection, you can review it in the ["BOM"](https://embedded-systems-design.github.io/EGR304DataSheetTemplate/03-BOM/BOM/) section of the datasheet.
+To review the materials and components used in the project, see the [BOM](03-BOM/BOM.md) section of this datasheet.
 
-For all the sections
+Additional sections of this datasheet provide information about the block diagram, component selection, schematic, and power budget.
