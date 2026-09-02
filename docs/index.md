@@ -10,7 +10,7 @@ tags:
 as part of<br>
 <font size="8">Project Name</font><br>
 for<br>
-<font size="5">Team ###</font><br>
+<font size="5">Team 203</font><br>
 
 **Submission: September 2, 2026**
 </center>
