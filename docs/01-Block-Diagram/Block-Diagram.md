@@ -1,24 +1,16 @@
 ---
-title: Individal Block Diagram
+title: Block Diagram
 tags:
-- tag1
-- tag2
+- block diagram
+- microphone
 ---
 
 ## Overview
-This needs to be updated with a brief purpose for having the block diagram.
-Things to mention are:
-* power levels
-* sensor
-* Actuator
-* team connections
-* Power source
-* ...
 
-To get some initial formatting help, one can view ["here"](https://embedded-systems-design.github.io/EGR304DataSheetTemplate/Appendix/basic-markdown-examples/) some basic techniques.
+This block diagram shows the major components and signal connections for the Team 203 microphone board. The MEMS microphone produces an analog signal that is conditioned by the MCP6004 op amp before being sent to the ADC input of the Microchip PIC18F57Q43 Curiosity Nano.
 
+The microcontroller provides the digital I/O connections for the push button, red LED, and the 8-pin ribbon cable connector used to interface with the other team boards. The board uses a 5V 1.5A voltage regulator, with the system powered from the 9V 3A unregulated power supply.
 
-## Example Block Diagram 
-Showing an example of how to import a screenshot of the block diagram created outside of git and brought into a page.
+## Block Diagram
 
-![Example of Indivial Block diagram ](individual-block-diagram.png)
+![Team 203 Microphone Board Block Diagram](Team%20304.drawio.png)
