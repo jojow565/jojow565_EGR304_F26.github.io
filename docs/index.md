@@ -34,3 +34,8 @@ This section documents my individual contributions to the team project. It will 
 To review the materials and components used in the project, see the [BOM](03-BOM/BOM.md) section of this datasheet.
 
 Additional sections of this datasheet provide information about the block diagram, component selection, schematic, and power budget.
+## Project Documentation
+
+- [Block Diagram](01-Block-Diagram/Block-Diagram.md)
+- [Component Selection](02-Component-Selection/Component-Selection.md)
+- [Power Budget](05-Power-Budget/Power-Budget.md)
