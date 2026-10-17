@@ -2,21 +2,30 @@
 title: Power Budget
 ---
 
-## Overview
-Write a overview of what you did and why you did a Power Budget.
+# Power Budget — Microphone Subsystem
 
-> Capture your power budge as a image to display. Take time to get clean breaks and a well organized layout.
+**EGR 304 | Team 203**
 
-![budget1](budgetPg1.png){style width:"350" height:"300;"}
+## Status
 
-![budget2](budgetPg2.png){style width:"350" height:"300;"}
+The power budget will be completed after final
+component selection and schematic design.
 
-![budget3](budgetPg3.png){style width:"350" height:"300;"}
+## Planned Components
 
-## Conclusions
+- 3SM121MZB1UA analog MEMS microphone
+- MCP6004 operational amplifier
+- PIC18F57Q43 Curiosity Nano
+- 5 V voltage regulator
+- 3.3 V microphone voltage regulator
 
-From the prepare Power Budget, .....
+## Planned Calculations
 
-## Resouces
+The final power budget will include supply voltage,
+current consumption, and total power requirements
+for each component.
 
-The power budget as a PDF download is available [*here*](PowerBudgetExample.pdf), and a Microsoft Excel Sheet [*here*](PowerBudgetExample.xlsx).
+A 25% current safety margin will be included
+for each power rail.
+
+**Status: Pending Power Budget assignment.**
