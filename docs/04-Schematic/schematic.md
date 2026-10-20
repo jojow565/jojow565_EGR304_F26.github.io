@@ -22,6 +22,9 @@ The subsystem includes:
 
 **Figure 1:** EGR 304 Microphone Subsystem Schematic.
 
+
 ## Resources
 
 [Download Microphone Subsystem Schematic (PDF)](EGR304_JW_Microphone_Subsystem.pdf)
+
+[Download KiCad Project Files (ZIP)](EGR304_JW_Microphone_Subsystem.zip)
