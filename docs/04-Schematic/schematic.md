@@ -18,7 +18,7 @@ The subsystem includes:
 
 **Note:** The microphone subsystem schematic is shown below. If the image does not display due to GitHub rendering issues, the complete schematic is available as a PDF in the Resources section.
 
-![Microphone Subsystem Schematic](Screenshot.png)
+![Microphone Subsystem Schematic](EGR304_JW_Microphone_Subsystem.svg)
 
 **Figure 1:** EGR 304 Microphone Subsystem Schematic.
 
