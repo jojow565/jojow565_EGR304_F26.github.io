@@ -8,12 +8,12 @@ This schematic represents the microphone subsystem designed for the EGR 304 team
 
 The subsystem includes:
 
-- A 5V regulated power supply with fuse protection.
-- A microphone and MCP6004 operational amplifier for sound detection.
-- A PIC18F57Q43 Curiosity Nano microcontroller.
-- An LED and pushbutton for testing and debugging.
-- UART TX/RX connections for communication with the main controller.
-- An ADC input for monitoring the microphone signal.
+* A 5V regulated power supply with fuse protection.
+* A microphone and MCP6004 operational amplifier for sound detection.
+* A PIC18F57Q43 Curiosity Nano microcontroller.
+* An LED and pushbutton for testing and debugging.
+* UART TX/RX connections for communication with the main controller.
+* An ADC input for monitoring the microphone signal.
 
 ## Schematic
 
