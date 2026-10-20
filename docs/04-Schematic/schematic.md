@@ -14,6 +14,7 @@ The subsystem includes:
 - An LED and pushbutton for testing and debugging.
 - UART TX/RX connections for communication with the main controller.
 - An ADC input for monitoring the microphone signal.
+
 ## Schematic
 
 **Note:** The microphone subsystem schematic is shown below. If the image does not display due to GitHub rendering issues, the complete schematic is available as a PDF in the Resources section.
