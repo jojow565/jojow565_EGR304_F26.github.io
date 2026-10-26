@@ -74,6 +74,20 @@ The primary concern identified is heat dissipation in the LM7805 regulator, part
 
 Before finalizing the design, the maximum current consumption of each active component, the complete load current, the selected adapter's current rating, and the regulator's thermal performance will be verified.
 
+## Power Budget Spreadsheet Images
+
+### Component Current Requirements and 5 V Rail
+
+![Power Budget Sections A and B](PowerBudget_A_B.png)
+
+### Voltage Regulators and External Supply
+
+![Power Budget Sections C and D](PowerBudget_C_D.png)
+
+### External Power Supply, Battery Life, and Notes
+
+![Power Budget Sections D and E](PowerBudget_D_E.png)
+
 ## Excel Power Budget
 
 [Download the preliminary microphone subsystem power budget](EGR304_JW_Power_Budget_PRELIMINARY.xlsx)
