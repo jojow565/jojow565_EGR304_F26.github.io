@@ -5,11 +5,20 @@ tags:
 - microphone
 ---
 
+
+
 ## Overview
 
-This block diagram shows the major components and signal connections for the Team 203 microphone board. The MEMS microphone produces an analog signal that is conditioned by the MCP6004 op amp before being sent to the ADC input of the Microchip PIC18F57Q43 Curiosity Nano.
+This block diagram illustrates the major components and signal connections for the Team 203 microphone detection subsystem.
 
-The microcontroller provides the digital I/O connections for the push button, red LED, and the 8-pin ribbon cable connector used to interface with the other team boards. The board uses a 5V 1.5A voltage regulator, with the system powered from the 9V 3A unregulated power supply.
+The microphone converts acoustic signals into electrical signals. These signals are conditioned by an MCP6004 operational amplifier circuit before being sent to an analog-to-digital converter (ADC) input on the Microchip PIC18F57Q43 Curiosity Nano development board.
+
+The microcontroller provides digital input/output connections for the pushbutton, indicator LED, and interface connections to other team subsystems.
+
+The proposed power architecture uses an external 9–12 V DC supply and an LM7805 linear voltage regulator to provide a regulated 5 V rail.
+
+The microphone type and final external power supply specifications are pending verification.
+
 
 ## Block Diagram
 
