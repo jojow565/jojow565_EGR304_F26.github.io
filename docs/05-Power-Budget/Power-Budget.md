@@ -1,8 +1,4 @@
 
----
-title: Power Budget
----
-
 # Power Budget — Microphone Subsystem
 
 **EGR 304 | Team 203**
