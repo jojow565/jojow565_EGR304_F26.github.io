@@ -1,8 +1,4 @@
 
----
-title: Home
----
-
 # EGR 304 — Embedded Systems Design
 
 <center>
