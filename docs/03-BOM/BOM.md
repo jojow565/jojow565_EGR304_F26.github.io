@@ -24,7 +24,7 @@ Component quantities represent the requirements for one subsystem assembly. Addi
 | Green LED | 1 | D2 | TBD | N/A | Owned |
 | Red LED | 1 | D3 | TBD | N/A | Owned |
 | Fuse, 1 A, 5 × 20 mm, fast-acting | 1 | F1 | Littelfuse 0217001.MXP | $0.61 | Order |
-| Fuse mounting clips | 2 | F1 mounting hardware | Bel Fuse FC-203-22 | $0.15 | Order |
+| Fuse mounting clips | 2 | F1 mounting hardware | Bel Fuse FC-203 BRIGHT TIN | $0.15 | Order |
 | DC barrel jack | 1 | J1 | TBD | N/A | Owned |
 | 8-pin connector | 1 | J3 | 2.54 mm header, exact part TBD | N/A | Owned |
 | Solder jumpers | 2 | JP1, JP2 | PCB solder jumpers | N/A | PCB |
@@ -43,7 +43,7 @@ Component quantities represent the requirements for one subsystem assembly. Addi
 | PIC18F57Q43 Curiosity Nano | 1 | U2 | Microchip PIC18F57Q43 Curiosity Nano | N/A | Owned |
 | Quad operational amplifier, DIP-14 | 1 | U3 | Microchip MCP6004-I/P | N/A | Owned |
 
-**Total: 40 schematic component instances across 23 grouped schematic entries, plus 2 fuse mounting clips (24 BOM rows total).**
+**Total: 41 schematic component instances across 23 grouped schematic entries, plus 2 fuse mounting clips (24 BOM rows total).**
 
 **Note:** N/A indicates that a component is already owned or is implemented directly on the PCB. It does not indicate that the component has no monetary value.
 
@@ -109,7 +109,7 @@ A replaceable 1 A fast-acting fuse protects the subsystem power input.
 Selected components:
 
 - Fuse: Littelfuse 0217001.MXP
-- Fuse clips: Bel Fuse FC-203-22
+- Fuse clips: Bel Fuse FC-203 BRIGHT TIN
 - Fuse dimensions: 5 × 20 mm
 - Two mounting clips are required for each fuse.
 
@@ -144,7 +144,7 @@ The following components must be ordered from DigiKey.
 | Description | Manufacturer | Part Number | Quantity to Order | Unit Cost | Extended Cost |
 |---|---|---|---:|---:|---:|
 | 1 A fast-acting fuse, 5 × 20 mm | Littelfuse | 0217001.MXP | 3 | $0.61 | $1.83 |
-| Fuse mounting clips | Bel Fuse | FC-203-22 | 4 | $0.15 | $0.60 |
+| Fuse mounting clips | Bel Fuse | FC-203 BRIGHT TIN | 4 | $0.15 | $0.60 |
 | **Total** | | | | | **$2.43** |
 
 ### Purchase Quantity Explanation
@@ -161,7 +161,7 @@ The following components must be ordered from DigiKey.
 
 The estimated component cost is **$2.43**, excluding shipping and applicable taxes.
 
-Prices are preliminary and will be verified before submitting the purchase request.
+Prices were checked against DigiKey listings on October 30, 2026.
 
 ## Outstanding Items
 
@@ -169,10 +169,8 @@ Prices are preliminary and will be verified before submitting the purchase reque
 - Verify component footprints against the physical parts.
 - Run KiCad Electrical Rules Check (ERC).
 - Download and organize manufacturer datasheets.
-- Verify DigiKey pricing and availability.
-- Complete the instructor's purchase-request spreadsheet.
 - Submit the purchase request for instructor approval.
 
 ## Design Status
 
-**Updated BOM — component inventory confirmed; final schematic verification and purchasing approval pending.**
+**Updated BOM — component inventory and purchasing requirements confirmed; final schematic verification and instructor purchasing approval pending.**
