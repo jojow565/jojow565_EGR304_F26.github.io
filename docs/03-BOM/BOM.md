@@ -12,36 +12,40 @@ The subsystem uses a microphone, an MCP6004 operational amplifier for analog sig
 
 All schematic components are included, including components already owned and those requiring purchase.
 
+Component quantities represent the requirements for one subsystem assembly. Additional quantities needed for prototyping and replacement parts are listed separately in the purchasing section.
+
 ## Bill of Materials
 
 | Description | Qty | Reference | Manufacturer / Part Number | Unit Cost | Availability |
-|---|---:|---|---|---|---|
-| Capacitor, 0.33 µF, 25 V | 1 | C1 | TBD | On hand | Owned |
-| Capacitor, 0.1 µF, 25 V | 5 | C2, C3, C4, C6, C7 | TBD | On hand | Owned |
-| Capacitor, 0.22 µF, 25 V | 1 | C5 | TBD | On hand | Owned |
-| Green LED | 1 | D2 | TBD | On hand | Owned |
-| Red LED | 1 | D3 | TBD | On hand | Owned |
+|---|---:|---|---|---:|---|
+| Capacitor, 0.33 µF, 25 V | 1 | C1 | TBD | N/A | Owned |
+| Capacitor, 0.1 µF, 25 V | 5 | C2, C3, C4, C6, C7 | TBD | N/A | Owned |
+| Capacitor, 0.22 µF, 25 V | 1 | C5 | TBD | N/A | Owned |
+| Green LED | 1 | D2 | TBD | N/A | Owned |
+| Red LED | 1 | D3 | TBD | N/A | Owned |
 | Fuse, 1 A, 5 × 20 mm, fast-acting | 1 | F1 | Littelfuse 0217001.MXP | $0.61 | Order |
 | Fuse mounting clips | 2 | F1 mounting hardware | Bel Fuse FC-203-22 | $0.15 | Order |
-| DC barrel jack | 1 | J1 | TBD | On hand | Owned |
-| 8-pin connector | 1 | J3 | 2.54 mm header, exact part TBD | On hand | Owned |
+| DC barrel jack | 1 | J1 | TBD | N/A | Owned |
+| 8-pin connector | 1 | J3 | 2.54 mm header, exact part TBD | N/A | Owned |
 | Solder jumpers | 2 | JP1, JP2 | PCB solder jumpers | N/A | PCB |
-| Microphone | 1 | MK1 | Existing microphone, model TBD | On hand | Owned |
-| Resistor, 1 kΩ, ¼ W | 3 | R1, R5, R7 | TBD | On hand | Owned |
-| Resistor, 10 kΩ, ¼ W | 5 | R3, R4, R13–R15 | TBD | On hand | Owned |
-| Resistor, 2.2 kΩ, ¼ W | 1 | R6 | TBD | On hand | Owned |
-| Resistor, 100 kΩ, ¼ W | 1 | R8 | TBD | On hand | Owned |
-| Resistor, 220 Ω, ¼ W | 1 | R9 | TBD | On hand | Owned |
-| Resistor, 330 Ω, ¼ W | 1 | R10 | TBD | On hand | Owned |
-| Resistor, 100 Ω, ¼ W | 2 | R11, R12 | TBD | On hand | Owned |
-| Trimmer potentiometer, 10 kΩ | 1 | RV1 | XCHC Electron 3296W-103 | On hand | Owned |
-| Momentary pushbutton | 1 | SW1 | TBD | On hand | Owned |
+| Microphone | 1 | MK1 | Existing microphone, model TBD | N/A | Owned |
+| Resistor, 1 kΩ, ¼ W | 3 | R1, R5, R7 | TBD | N/A | Owned |
+| Resistor, 10 kΩ, ¼ W | 5 | R3, R4, R13–R15 | TBD | N/A | Owned |
+| Resistor, 2.2 kΩ, ¼ W | 1 | R6 | TBD | N/A | Owned |
+| Resistor, 100 kΩ, ¼ W | 1 | R8 | TBD | N/A | Owned |
+| Resistor, 220 Ω, ¼ W | 1 | R9 | TBD | N/A | Owned |
+| Resistor, 330 Ω, ¼ W | 1 | R10 | TBD | N/A | Owned |
+| Resistor, 100 Ω, ¼ W | 2 | R11, R12 | TBD | N/A | Owned |
+| Trimmer potentiometer, 10 kΩ | 1 | RV1 | XCHC Electron 3296W-103 | N/A | Owned |
+| Momentary pushbutton | 1 | SW1 | TBD | N/A | Owned |
 | Test points | 6 | TP1–TP6 | PCB test points | N/A | PCB |
-| 5 V linear regulator | 1 | U1 | LM7805, variant TBD | On hand | Owned |
-| PIC18F57Q43 Curiosity Nano | 1 | U2 | Microchip PIC18F57Q43 Curiosity Nano | On hand | Owned |
-| Quad operational amplifier, DIP-14 | 1 | U3 | Microchip MCP6004-I/P | On hand | Owned |
+| 5 V linear regulator | 1 | U1 | LM7805, variant TBD | N/A | Owned |
+| PIC18F57Q43 Curiosity Nano | 1 | U2 | Microchip PIC18F57Q43 Curiosity Nano | N/A | Owned |
+| Quad operational amplifier, DIP-14 | 1 | U3 | Microchip MCP6004-I/P | N/A | Owned |
 
-**Total: 40 schematic component instances across 23 grouped schematic entries, plus 2 fuse mounting clips.**
+**Total: 40 schematic component instances across 23 grouped schematic entries, plus 2 fuse mounting clips (24 BOM rows total).**
+
+**Note:** N/A indicates that a component is already owned or is implemented directly on the PCB. It does not indicate that the component has no monetary value.
 
 ## Component Selection
 
@@ -90,9 +94,13 @@ KiCad footprint:
 
 `Potentiometer_THT:Potentiometer_Bourns_3296W_Vertical`
 
+The potentiometer is already owned and does not require purchasing.
+
 ### Voltage Regulator
 
 The LM7805 provides a regulated 5 V supply for the microphone subsystem.
+
+The regulator is already available and does not require purchasing.
 
 ### Fuse and Fuse Holder
 
@@ -108,6 +116,8 @@ Selected components:
 KiCad footprint:
 
 `Fuse:Fuseholder_Clip-5x20mm_Bel_FC-203-22_Lateral_P17.80x5.00mm_D1.17mm_Horizontal`
+
+The fuse and mounting clips are the only components currently identified for purchase.
 
 ## Hardware Availability
 
@@ -125,6 +135,8 @@ The following components are already available and do not require purchasing:
 - DC barrel jack
 - Header pins
 
+The solder jumpers and PCB test points are implemented as PCB features and do not require separate component purchases.
+
 ## Purchase Requirements
 
 The following components must be ordered from DigiKey.
@@ -135,9 +147,21 @@ The following components must be ordered from DigiKey.
 | Fuse mounting clips | Bel Fuse | FC-203-22 | 4 | $0.15 | $0.60 |
 | **Total** | | | | | **$2.43** |
 
-The additional fuses and mounting clips provide replacement parts and spare hardware.
+### Purchase Quantity Explanation
 
-Prices are preliminary and exclude shipping and applicable taxes.
+**Fuses:**
+- 1 fuse required for the subsystem
+- 2 additional replacement fuses
+- 3 fuses ordered total
+
+**Fuse mounting clips:**
+- 2 clips required for the subsystem
+- 2 additional clips for spare hardware
+- 4 clips ordered total
+
+The estimated component cost is **$2.43**, excluding shipping and applicable taxes.
+
+Prices are preliminary and will be verified before submitting the purchase request.
 
 ## Outstanding Items
 
