@@ -1,9 +1,8 @@
-
 # Bill of Materials — Microphone Subsystem
 
 **EGR 304 | Team 203 | Joseph White**
 
-**Status: Preliminary — October 26, 2026**
+**Status: Updated — October 30, 2026**
 
 ## Overview
 
@@ -11,68 +10,145 @@ This bill of materials (BOM) documents the components included in the microphone
 
 The subsystem uses a microphone, an MCP6004 operational amplifier for analog signal conditioning, a PIC18F57Q43 Curiosity Nano development board, and an LM7805 regulator for the 5 V power rail.
 
-The component list was exported from the current KiCad schematic. Quantities below represent schematic requirements and do not yet include prototyping components or replacement parts.
-
-Manufacturer part numbers, prices, suppliers, and footprints will be verified before purchase requests are submitted.
+All schematic components are included, including components already owned and those requiring purchase.
 
 ## Bill of Materials
 
-| Description | Qty | Reference | Manufacturer / Part Number | Unit Cost |
-|---|---:|---|---|---|
-| Capacitor, 0.33 µF, 25 V | 1 | C1 | TBD | TBD |
-| Capacitor, 0.1 µF, 25 V | 5 | C2, C3, C4, C6, C7 | TBD | TBD |
-| Capacitor, 0.22 µF, 25 V | 1 | C5 | TBD | TBD |
-| Green LED | 1 | D2 | TBD | TBD |
-| Red LED | 1 | D3 | TBD | TBD |
-| Fuse, 1 A | 1 | F1 | TBD | TBD |
-| DC barrel jack | 1 | J1 | TBD | TBD |
-| 8-pin connector | 1 | J3 | TBD | TBD |
-| Solder jumpers | 2 | JP1, JP2 | TBD | TBD |
-| MEMS microphone, proposed | 1 | MK1 | 3SM121MZB1UA — verify | TBD |
-| Resistor, 1 kΩ, ¼ W | 3 | R1, R5, R7 | TBD | TBD |
-| Resistor, 10 kΩ, ¼ W | 5 | R3, R4, R13–R15 | TBD | TBD |
-| Resistor, 2.2 kΩ, ¼ W | 1 | R6 | TBD | TBD |
-| Resistor, 100 kΩ, ¼ W | 1 | R8 | TBD | TBD |
-| Resistor, 220 Ω, ¼ W | 1 | R9 | TBD | TBD |
-| Resistor, 330 Ω, ¼ W | 1 | R10 | TBD | TBD |
-| Resistor, 100 Ω, ¼ W | 2 | R11, R12 | TBD | TBD |
-| Momentary pushbutton | 1 | SW1 | TBD | TBD |
-| Test points | 6 | TP1–TP6 | TBD | TBD |
-| 5 V linear regulator | 1 | U1 | LM7805 — variant TBD | TBD |
-| PIC18F57Q43 Curiosity Nano | 1 | U2 | Microchip — exact kit TBD | TBD |
-| Quad operational amplifier, DIP-14 | 1 | U3 | Microchip MCP6004-I/P | TBD |
+| Description | Qty | Reference | Manufacturer / Part Number | Unit Cost | Availability |
+|---|---:|---|---|---|---|
+| Capacitor, 0.33 µF, 25 V | 1 | C1 | TBD | On hand | Owned |
+| Capacitor, 0.1 µF, 25 V | 5 | C2, C3, C4, C6, C7 | TBD | On hand | Owned |
+| Capacitor, 0.22 µF, 25 V | 1 | C5 | TBD | On hand | Owned |
+| Green LED | 1 | D2 | TBD | On hand | Owned |
+| Red LED | 1 | D3 | TBD | On hand | Owned |
+| Fuse, 1 A, 5 × 20 mm, fast-acting | 1 | F1 | Littelfuse 0217001.MXP | $0.61 | Order |
+| Fuse mounting clips | 2 | F1 mounting hardware | Bel Fuse FC-203-22 | $0.15 | Order |
+| DC barrel jack | 1 | J1 | TBD | On hand | Owned |
+| 8-pin connector | 1 | J3 | 2.54 mm header, exact part TBD | On hand | Owned |
+| Solder jumpers | 2 | JP1, JP2 | PCB solder jumpers | N/A | PCB |
+| Microphone | 1 | MK1 | Existing microphone, model TBD | On hand | Owned |
+| Resistor, 1 kΩ, ¼ W | 3 | R1, R5, R7 | TBD | On hand | Owned |
+| Resistor, 10 kΩ, ¼ W | 5 | R3, R4, R13–R15 | TBD | On hand | Owned |
+| Resistor, 2.2 kΩ, ¼ W | 1 | R6 | TBD | On hand | Owned |
+| Resistor, 100 kΩ, ¼ W | 1 | R8 | TBD | On hand | Owned |
+| Resistor, 220 Ω, ¼ W | 1 | R9 | TBD | On hand | Owned |
+| Resistor, 330 Ω, ¼ W | 1 | R10 | TBD | On hand | Owned |
+| Resistor, 100 Ω, ¼ W | 2 | R11, R12 | TBD | On hand | Owned |
+| Trimmer potentiometer, 10 kΩ | 1 | RV1 | XCHC Electron 3296W-103 | On hand | Owned |
+| Momentary pushbutton | 1 | SW1 | TBD | On hand | Owned |
+| Test points | 6 | TP1–TP6 | PCB test points | N/A | PCB |
+| 5 V linear regulator | 1 | U1 | LM7805, variant TBD | On hand | Owned |
+| PIC18F57Q43 Curiosity Nano | 1 | U2 | Microchip PIC18F57Q43 Curiosity Nano | On hand | Owned |
+| Quad operational amplifier, DIP-14 | 1 | U3 | Microchip MCP6004-I/P | On hand | Owned |
 
-**Total: 39 schematic component instances across 23 grouped BOM entries.**
+**Total: 40 schematic component instances across 23 grouped schematic entries, plus 2 fuse mounting clips.**
 
-## Planned Design Revision
+## Component Selection
 
-The proposed 3SM121MZB1UA microphone requires a compatible lower-voltage supply.
+### Microphone
 
-A dedicated 3.3 V regulator and any required supporting capacitors are planned additions. They are not included in the current schematic export or component totals.
+The microphone converts acoustic signals into electrical signals for processing by the operational amplifier.
 
-The microphone power architecture must be verified and updated before PCB fabrication.
+The existing microphone will be used for prototyping. Its exact manufacturer part number and electrical specifications will be verified.
 
-## Purchasing Requirements
+### Operational Amplifier
 
-Final order quantities will account for:
+The MCP6004-I/P is a quad operational amplifier used for analog signal conditioning.
 
-- Components required for the subsystem PCB.
-- Breadboard-compatible components for prototyping.
-- One or two additional parts per component instance where appropriate.
-- Components already available in Peralta 109.
+The amplifier increases the microphone signal amplitude before the signal is sampled by the microcontroller ADC.
 
-Purchase requests will be organized by vendor and submitted for instructor approval.
+### Microcontroller
+
+The Microchip PIC18F57Q43 Curiosity Nano development board provides analog-to-digital conversion, digital processing, and digital-to-analog conversion.
+
+The subsystem uses the following signals:
+
+| Signal | PIC Pin | Function |
+|---|---|---|
+| RA0_ADC | RA0 | Analog microphone input |
+| DAC_OUT | RA2 | DAC output |
+| INT_OUT | RA1 | Interrupt output |
+| UART_RX | RC7 | UART receive |
+| UART_TX | RC6 | UART transmit |
+| BTN | RD1 | Pushbutton input |
+| LED | RD2 | LED output |
+| GND | GND | Common ground |
+
+### Potentiometer
+
+The XCHC Electron 3296W-103 is a 10 kΩ multiturn trimmer potentiometer.
+
+The potentiometer provides an adjustable reference voltage for the MCP6004 non-inverting input.
+
+Connections:
+
+- Pin 1: +5 V
+- Pin 2: MCP6004 non-inverting input
+- Pin 3: GND
+
+KiCad footprint:
+
+`Potentiometer_THT:Potentiometer_Bourns_3296W_Vertical`
+
+### Voltage Regulator
+
+The LM7805 provides a regulated 5 V supply for the microphone subsystem.
+
+### Fuse and Fuse Holder
+
+A replaceable 1 A fast-acting fuse protects the subsystem power input.
+
+Selected components:
+
+- Fuse: Littelfuse 0217001.MXP
+- Fuse clips: Bel Fuse FC-203-22
+- Fuse dimensions: 5 × 20 mm
+- Two mounting clips are required for each fuse.
+
+KiCad footprint:
+
+`Fuse:Fuseholder_Clip-5x20mm_Bel_FC-203-22_Lateral_P17.80x5.00mm_D1.17mm_Horizontal`
+
+## Hardware Availability
+
+The following components are already available and do not require purchasing:
+
+- Microphone
+- PIC18F57Q43 Curiosity Nano
+- MCP6004 operational amplifier
+- LM7805 voltage regulator
+- Resistors
+- Capacitors
+- 10 kΩ potentiometer
+- LEDs
+- Pushbutton
+- DC barrel jack
+- Header pins
+
+## Purchase Requirements
+
+The following components must be ordered from DigiKey.
+
+| Description | Manufacturer | Part Number | Quantity to Order | Unit Cost | Extended Cost |
+|---|---|---|---:|---:|---:|
+| 1 A fast-acting fuse, 5 × 20 mm | Littelfuse | 0217001.MXP | 3 | $0.61 | $1.83 |
+| Fuse mounting clips | Bel Fuse | FC-203-22 | 4 | $0.15 | $0.60 |
+| **Total** | | | | | **$2.43** |
+
+The additional fuses and mounting clips provide replacement parts and spare hardware.
+
+Prices are preliminary and exclude shipping and applicable taxes.
 
 ## Outstanding Items
 
-- Confirm microphone electrical specifications and package.
-- Add and verify the microphone supply regulator.
-- Complete missing KiCad footprints.
-- Verify manufacturer part numbers and datasheets.
-- Determine stock availability and purchase quantities.
-- Obtain vendor pricing and calculate total cost.
-- Prepare vendor-specific purchase request spreadsheets.
+- Verify the exact microphone model and electrical specifications.
+- Verify component footprints against the physical parts.
+- Run KiCad Electrical Rules Check (ERC).
+- Download and organize manufacturer datasheets.
+- Verify DigiKey pricing and availability.
+- Complete the instructor's purchase-request spreadsheet.
+- Submit the purchase request for instructor approval.
 
 ## Design Status
 
-**Preliminary BOM — pending component verification, schematic revisions, and purchasing approval.**
+**Updated BOM — component inventory confirmed; final schematic verification and purchasing approval pending.**
