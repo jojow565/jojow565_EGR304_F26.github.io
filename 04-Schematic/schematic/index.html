@@ -82,11 +82,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#overview" class="md-skip">
-          Skip to content
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -618,17 +613,6 @@
       
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Schematic
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -638,50 +622,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
-    <span class="md-ellipsis">
-      Overview
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#schematic" class="md-nav__link">
-    <span class="md-ellipsis">
-      Schematic
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -863,41 +803,6 @@
   
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
-    <span class="md-ellipsis">
-      Overview
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#schematic" class="md-nav__link">
-    <span class="md-ellipsis">
-      Schematic
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resources
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -921,33 +826,102 @@
 
   <h1>Schematic</h1>
 
-<h2 id="overview">Overview</h2>
-<p>This schematic represents the microphone subsystem designed for the EGR 304 team project at Arizona State University.</p>
-<p>The subsystem includes:</p>
-<ul>
-<li>A 5V regulated power supply with fuse protection.</li>
-<li>A microphone and MCP6004 operational amplifier for sound detection.</li>
-<li>A PIC18F57Q43 Curiosity Nano microcontroller.</li>
-<li>An LED and pushbutton for testing and debugging.</li>
-<li>UART TX/RX connections for communication with the main controller.</li>
-<li>An ADC input for monitoring the microphone signal.</li>
-</ul>
-<h2 id="schematic">Schematic</h2>
-<p><strong>Note:</strong> The microphone subsystem schematic is shown below. If the image does not display due to GitHub rendering issues, the complete schematic is available as a PDF in the Resources section.</p>
-<p><img alt="Microphone Subsystem Schematic" src="../EGR304_JW_Microphone_Subsystem.svg" /></p>
-<p><strong>Figure 1:</strong> EGR 304 Microphone Subsystem Schematic.</p>
-<h2 id="resources">Resources</h2>
-<p><a href="../EGR304_JW_Microphone_Subsystem.pdf">Download Microphone Subsystem Schematic (PDF)</a></p>
-<p><a href="../EGR304_JW_Microphone_Subsystem.zip">Download KiCad Project Files (ZIP)</a></p>
+<div class="highlight"><pre><span></span><code>---
+<span class="gu">title: Schematic</span>
+<span class="gu">---</span>
+
+<span class="gh"># Microphone Subsystem Schematic</span>
+
+<span class="gs">**EGR 304 | Team 203 | Joseph White**</span>
+
+<span class="gu">## Overview</span>
+
+This schematic represents the microphone detection subsystem designed for the EGR 304 automated cat-toy project at Arizona State University.
+
+The subsystem uses a class-supplied microphone, MCP6004 operational amplifier, adjustable 10 kΩ potentiometer, and PIC18F57Q43 Curiosity Nano microcontroller.
+
+<span class="gu">## Circuit Components</span>
+
+The schematic includes:
+
+<span class="k">-</span><span class="w"> </span><span class="gs">**Power Supply:**</span> External 9–12 V DC input, 1 A fuse, and LM7805 linear voltage regulator providing a regulated 5 V supply.
+<span class="k">-</span><span class="w"> </span><span class="gs">**Microphone:**</span> Class-supplied microphone for acoustic signal detection.
+<span class="k">-</span><span class="w"> </span><span class="gs">**Operational Amplifier:**</span> MCP6004 for microphone signal amplification and conditioning.
+<span class="k">-</span><span class="w"> </span><span class="gs">**Potentiometer:**</span> 10 kΩ adjustable potentiometer providing an approximately 2.5 V reference voltage.
+<span class="k">-</span><span class="w"> </span><span class="gs">**Low-Pass Filter:**</span> Resistor-capacitor network for filtering the conditioned microphone signal.
+<span class="k">-</span><span class="w"> </span><span class="gs">**Microcontroller:**</span> PIC18F57Q43 Curiosity Nano for ADC sampling and digital processing.
+<span class="k">-</span><span class="w"> </span><span class="gs">**UART Interface:**</span> TX and RX connections for communication with the team&#39;s main controller.
+<span class="k">-</span><span class="w"> </span><span class="gs">**Debugging Components:**</span> Pushbutton, indicator LEDs, and test points.
+
+<span class="gu">## Schematic</span>
+
+The complete microphone subsystem schematic is displayed below.
+
+![<span class="nt">EGR 304 Microphone Subsystem Schematic</span>](<span class="na">EGR304_JW_Microphone_Subsystem.svg</span>)
+
+<span class="gs">**Figure 1:**</span> Complete microphone subsystem schematic showing power regulation, signal conditioning, microcontroller connections, and communication interface.
+
+<span class="gu">### PDF Version</span>
+
+The schematic is also available as a PDF for detailed viewing and printing.
+
+[<span class="nt">View or Download Microphone Subsystem Schematic (PDF)</span>](<span class="na">EGR304_JW_Microphone_Subsystem.pdf</span>)
+
+<span class="gu">## Microcontroller Connections</span>
+
+| PIC Pin | Signal | Purpose |
+|---|---|---|
+| RA0 | RA0_ADC | Conditioned microphone signal |
+| RA1 | INT_OUT | Interrupt output |
+| RA2 | DAC_OUT | Analog output |
+| RC6 | UART_TX | Serial transmit |
+| RC7 | UART_RX | Serial receive |
+| RD1 | BTN | Pushbutton input |
+| RD2 | LED | Red indicator LED |
+
+<span class="gu">## Team Connector</span>
+
+The subsystem uses an 8-pin connector for communication and integration with the other team subsystems.
+
+| Connector Pin | Signal | Purpose |
+|---|---|---|
+| 1 | DAC_OUT | Analog output |
+| 2 | RA0_ADC | Microphone ADC signal |
+| 3 | UART_TX | Serial transmit |
+| 4 | UART_RX | Serial receive |
+| 5 | INT_OUT | Interrupt output |
+| 6 | BTN | Pushbutton |
+| 7 | LED | Indicator LED |
+| 8 | GND | Ground |
+
+<span class="gu">## Resources</span>
+
+<span class="gu">### Schematic PDF</span>
+
+[<span class="nt">Download Schematic (PDF)</span>](<span class="na">EGR304_JW_Microphone_Subsystem.pdf</span>)
+
+<span class="gu">### Schematic SVG</span>
+
+[<span class="nt">View Schematic (SVG)</span>](<span class="na">EGR304_JW_Microphone_Subsystem.svg</span>)
+
+<span class="gu">### KiCad Project Files</span>
+
+[<span class="nt">Download KiCad Project (ZIP)</span>](<span class="na">EGR304_JW_Microphone_Subsystem.zip</span>)
+
+<span class="gu">## Design Status</span>
+
+The schematic documents the microphone subsystem&#39;s preliminary external design review configuration.
+
+The design uses a single regulated 5 V supply and includes the class-supplied microphone and adjustable reference potentiometer.
+
+Final hardware operation will be verified during circuit assembly and testing.
+</code></pre></div>
 
 
 
 
 
 
-
-  
-  
 
 
 
