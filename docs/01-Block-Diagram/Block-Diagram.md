@@ -22,4 +22,4 @@ The microphone type and final external power supply specifications are pending v
 
 ## Block Diagram
 
-![Team 203 Microphone Board Block Diagram](Team%20304.drawio.png)
+![Team 203 Microphone Board Block Diagram](Individual.drawio.png)
