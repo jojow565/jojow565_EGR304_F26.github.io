@@ -29,7 +29,7 @@
 
     
       
-        <title>Index - EGR 304 Joseph White Data Sheet</title>
+        <title>Appendix - Main Page - EGR 304 Joseph White Data Sheet</title>
       
     
     
@@ -82,6 +82,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#appendix-microphone-subsystem" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -113,7 +118,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Index
+              Appendix - Main Page
             
           </span>
         </div>
@@ -867,6 +872,127 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#main-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      Main Components
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#microphone-signal-conditioning" class="md-nav__link">
+    <span class="md-ellipsis">
+      Microphone Signal Conditioning
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Microphone Signal Conditioning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#potentiometer-connections" class="md-nav__link">
+    <span class="md-ellipsis">
+      Potentiometer Connections
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#microcontroller-pin-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Microcontroller Pin Configuration
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#power-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      Power System
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#signal-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Signal Flow
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#supporting-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Supporting Documentation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Supporting Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#microcontroller" class="md-nav__link">
+    <span class="md-ellipsis">
+      Microcontroller
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operational-amplifier" class="md-nav__link">
+    <span class="md-ellipsis">
+      Operational Amplifier
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#design-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      Design Status
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -889,109 +1015,167 @@
   
 
 
-  <h1>Index</h1>
+<h1 id="appendix-microphone-subsystem">Appendix — Microphone Subsystem</h1>
+<p><strong>EGR 304 | Team 203 | Joseph White</strong></p>
+<h2 id="overview">Overview</h2>
+<p>This appendix provides supporting technical information for the microphone detection subsystem of the automated cat-toy project.</p>
+<p>The subsystem uses the microphone supplied during EGR 304 laboratory exercises, an MCP6004 operational amplifier, and a PIC18F57Q43 Curiosity Nano microcontroller.</p>
+<h2 id="main-components">Main Components</h2>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Part Number</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Microcontroller</td>
+<td>PIC18F57Q43</td>
+<td>Signal processing and communication</td>
+</tr>
+<tr>
+<td>Microphone</td>
+<td>Class-supplied two-wire microphone</td>
+<td>Acoustic detection</td>
+</tr>
+<tr>
+<td>Operational amplifier</td>
+<td>MCP6004</td>
+<td>Microphone signal conditioning</td>
+</tr>
+<tr>
+<td>Potentiometer</td>
+<td>XCHC Electron 3296W-103</td>
+<td>Adjustable voltage reference</td>
+</tr>
+<tr>
+<td>Voltage regulator</td>
+<td>LM7805</td>
+<td>Regulated 5 V supply</td>
+</tr>
+<tr>
+<td>Pushbutton</td>
+<td>Momentary switch</td>
+<td>User input</td>
+</tr>
+<tr>
+<td>Indicator LED</td>
+<td>Red LED</td>
+<td>Visual status indication</td>
+</tr>
+</tbody>
+</table>
+<h2 id="microphone-signal-conditioning">Microphone Signal Conditioning</h2>
+<p>The microphone detects acoustic signals and provides an electrical signal to the MCP6004 operational amplifier.</p>
+<p>The amplifier conditions the microphone signal before it reaches the microcontroller's analog-to-digital converter (ADC).</p>
+<p>A 10 kΩ multiturn potentiometer provides an adjustable reference voltage for the amplifier.</p>
+<p>The potentiometer is adjusted to approximately 2.5 V to establish the desired reference level.</p>
+<h3 id="potentiometer-connections">Potentiometer Connections</h3>
+<table>
+<thead>
+<tr>
+<th>Potentiometer Pin</th>
+<th>Connection</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pin 1</td>
+<td>+5 V</td>
+</tr>
+<tr>
+<td>Pin 2 (Wiper)</td>
+<td>MCP6004 reference input</td>
+</tr>
+<tr>
+<td>Pin 3</td>
+<td>Ground</td>
+</tr>
+</tbody>
+</table>
+<h2 id="microcontroller-pin-configuration">Microcontroller Pin Configuration</h2>
+<table>
+<thead>
+<tr>
+<th>PIC Pin</th>
+<th>Function</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RA0</td>
+<td>ADC input</td>
+<td>Conditioned microphone signal</td>
+</tr>
+<tr>
+<td>RA1</td>
+<td>GPIO output</td>
+<td>INT_OUT</td>
+</tr>
+<tr>
+<td>RA2</td>
+<td>DAC output</td>
+<td>Analog output</td>
+</tr>
+<tr>
+<td>RC6</td>
+<td>UART TX</td>
+<td>Serial transmission</td>
+</tr>
+<tr>
+<td>RC7</td>
+<td>UART RX</td>
+<td>Serial reception</td>
+</tr>
+<tr>
+<td>RD1</td>
+<td>GPIO input</td>
+<td>Pushbutton</td>
+</tr>
+<tr>
+<td>RD2</td>
+<td>GPIO output</td>
+<td>Red LED</td>
+</tr>
+</tbody>
+</table>
+<h2 id="power-system">Power System</h2>
+<p>The subsystem uses an external 9–12 V DC supply.</p>
+<p>An LM7805 linear voltage regulator provides a regulated 5 V supply for the circuit.</p>
+<p>The design uses a single regulated 5 V power rail.</p>
+<p>The 10 kΩ potentiometer establishes an adjustable reference voltage of approximately 2.5 V for the amplifier.</p>
+<p>No additional 3.3 V regulator is required for the selected design.</p>
+<h2 id="signal-flow">Signal Flow</h2>
+<ol>
+<li>The class-supplied microphone detects sound.</li>
+<li>The MCP6004 amplifies and conditions the microphone signal.</li>
+<li>The 10 kΩ potentiometer establishes the amplifier reference voltage.</li>
+<li>The conditioned signal enters the PIC18F57Q43 through RA0.</li>
+<li>The microcontroller processes the ADC readings.</li>
+<li>UART1 provides communication with the other team subsystems.</li>
+</ol>
+<h2 id="supporting-documentation">Supporting Documentation</h2>
+<h3 id="microcontroller">Microcontroller</h3>
+<p><a href="https://www.microchip.com/en-us/product/PIC18F57Q43">PIC18F57Q43 Documentation</a></p>
+<h3 id="operational-amplifier">Operational Amplifier</h3>
+<p><a href="https://www.microchip.com/en-us/product/MCP6004">MCP6004 Documentation</a></p>
+<h2 id="design-status">Design Status</h2>
+<p>The microphone subsystem is currently in the external design review stage.</p>
+<p>The design uses the class-supplied microphone, MCP6004 signal-conditioning circuit, adjustable 10 kΩ potentiometer reference, and regulated 5 V power supply.</p>
+<p>Final circuit operation will be verified during hardware testing.
+```</p>
 
-<div class="highlight"><pre><span></span><code>---
-<span class="gu">title: Appendix - Main Page</span>
-<span class="gu">---</span>
-
-<span class="gh"># Appendix — Microphone Subsystem</span>
-
-<span class="gs">**EGR 304 | Team 203 | Joseph White**</span>
-
-<span class="gu">## Overview</span>
-
-This appendix provides supporting technical information for the microphone detection subsystem of the automated cat-toy project.
-
-The subsystem uses the microphone supplied during EGR 304 laboratory exercises, an MCP6004 operational amplifier, and a PIC18F57Q43 Curiosity Nano microcontroller.
-
-<span class="gu">## Main Components</span>
-
-| Component | Part Number | Purpose |
-|---|---|---|
-| Microcontroller | PIC18F57Q43 | Signal processing and communication |
-| Microphone | Class-supplied two-wire microphone | Acoustic detection |
-| Operational amplifier | MCP6004 | Microphone signal conditioning |
-| Potentiometer | XCHC Electron 3296W-103 | Adjustable voltage reference |
-| Voltage regulator | LM7805 | Regulated 5 V supply |
-| Pushbutton | Momentary switch | User input |
-| Indicator LED | Red LED | Visual status indication |
-
-<span class="gu">## Microphone Signal Conditioning</span>
-
-The microphone detects acoustic signals and provides an electrical signal to the MCP6004 operational amplifier.
-
-The amplifier conditions the microphone signal before it reaches the microcontroller&#39;s analog-to-digital converter (ADC).
-
-A 10 kΩ multiturn potentiometer provides an adjustable reference voltage for the amplifier.
-
-The potentiometer is adjusted to approximately 2.5 V to establish the desired reference level.
-
-<span class="gu">### Potentiometer Connections</span>
-
-| Potentiometer Pin | Connection |
-|---|---|
-| Pin 1 | +5 V |
-| Pin 2 (Wiper) | MCP6004 reference input |
-| Pin 3 | Ground |
-
-<span class="gu">## Microcontroller Pin Configuration</span>
-
-| PIC Pin | Function | Purpose |
-|---|---|---|
-| RA0 | ADC input | Conditioned microphone signal |
-| RA1 | GPIO output | INT_OUT |
-| RA2 | DAC output | Analog output |
-| RC6 | UART TX | Serial transmission |
-| RC7 | UART RX | Serial reception |
-| RD1 | GPIO input | Pushbutton |
-| RD2 | GPIO output | Red LED |
-
-<span class="gu">## Power System</span>
-
-The subsystem uses an external 9–12 V DC supply.
-
-An LM7805 linear voltage regulator provides a regulated 5 V supply for the circuit.
-
-The design uses a single regulated 5 V power rail.
-
-The 10 kΩ potentiometer establishes an adjustable reference voltage of approximately 2.5 V for the amplifier.
-
-No additional 3.3 V regulator is required for the selected design.
-
-<span class="gu">## Signal Flow</span>
-
-<span class="k">1.</span> The class-supplied microphone detects sound.
-<span class="k">2.</span> The MCP6004 amplifies and conditions the microphone signal.
-<span class="k">3.</span> The 10 kΩ potentiometer establishes the amplifier reference voltage.
-<span class="k">4.</span> The conditioned signal enters the PIC18F57Q43 through RA0.
-<span class="k">5.</span> The microcontroller processes the ADC readings.
-<span class="k">6.</span> UART1 provides communication with the other team subsystems.
-
-<span class="gu">## Supporting Documentation</span>
-
-<span class="gu">### Microcontroller</span>
-
-[<span class="nt">PIC18F57Q43 Documentation</span>](<span class="na">https://www.microchip.com/en-us/product/PIC18F57Q43</span>)
-
-<span class="gu">### Operational Amplifier</span>
-
-[<span class="nt">MCP6004 Documentation</span>](<span class="na">https://www.microchip.com/en-us/product/MCP6004</span>)
-
-<span class="gu">## Design Status</span>
-
-The microphone subsystem is currently in the external design review stage.
-
-The design uses the class-supplied microphone, MCP6004 signal-conditioning circuit, adjustable 10 kΩ potentiometer reference, and regulated 5 V power supply.
-
-Final circuit operation will be verified during hardware testing.
-</code></pre></div>
 
 
 
 
 
 
+  
+  
 
 
 
