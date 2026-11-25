@@ -564,6 +564,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#microcontroller-pin-assignments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Microcontroller Pin Assignments
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#block-diagram" class="md-nav__link">
     <span class="md-ellipsis">
       Block Diagram
@@ -1002,6 +1011,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#microcontroller-pin-assignments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Microcontroller Pin Assignments
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#block-diagram" class="md-nav__link">
     <span class="md-ellipsis">
       Block Diagram
@@ -1037,10 +1055,77 @@
 
 <h2 id="overview">Overview</h2>
 <p>This block diagram illustrates the major components and signal connections for the Team 203 microphone detection subsystem.</p>
-<p>The microphone converts acoustic signals into electrical signals. These signals are conditioned by an MCP6004 operational amplifier circuit before being sent to an analog-to-digital converter (ADC) input on the Microchip PIC18F57Q43 Curiosity Nano development board.</p>
-<p>The microcontroller provides digital input/output connections for the pushbutton, indicator LED, and interface connections to other team subsystems.</p>
-<p>The proposed power architecture uses an external 9–12 V DC supply and an LM7805 linear voltage regulator to provide a regulated 5 V rail.</p>
-<p>The microphone type and final external power supply specifications are pending verification.</p>
+<p>The microphone converts acoustic signals into electrical signals. These signals are amplified by a Microchip MCP6004 operational amplifier and passed through a low-pass filter before reaching the ADC input on the Microchip PIC18F57Q43 Curiosity Nano development board.</p>
+<p>The microcontroller converts the amplified microphone signal into a digital value using its 12-bit ADC. The signal can then be reproduced through the 8-bit DAC or transmitted to other team subsystems using UART communication.</p>
+<p>The PCB pushbutton provides a digital input to the microcontroller, while the red LED receives a digital output from the microcontroller.</p>
+<p>The power architecture uses an external 9–12 V DC power supply and an LM7805 linear voltage regulator to provide a regulated 5 V rail.</p>
+<h2 id="microcontroller-pin-assignments">Microcontroller Pin Assignments</h2>
+<table>
+<thead>
+<tr>
+<th>Pin</th>
+<th>Function</th>
+<th>Direction</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RA0</td>
+<td>Microphone ADC</td>
+<td>Input</td>
+</tr>
+<tr>
+<td>RA1</td>
+<td>Sound Detection (INT_OUT)</td>
+<td>Output</td>
+</tr>
+<tr>
+<td>RA2</td>
+<td>DAC</td>
+<td>Output</td>
+</tr>
+<tr>
+<td>RC6</td>
+<td>Team UART TX</td>
+<td>Output</td>
+</tr>
+<tr>
+<td>RC7</td>
+<td>Team UART RX</td>
+<td>Input</td>
+</tr>
+<tr>
+<td>RD1</td>
+<td>PCB Pushbutton</td>
+<td>Input</td>
+</tr>
+<tr>
+<td>RD2</td>
+<td>PCB Red LED</td>
+<td>Output</td>
+</tr>
+<tr>
+<td>RB4</td>
+<td>Nano Pushbutton</td>
+<td>Input</td>
+</tr>
+<tr>
+<td>RF3</td>
+<td>Nano Yellow LED</td>
+<td>Output</td>
+</tr>
+<tr>
+<td>RF0</td>
+<td>PuTTY UART TX</td>
+<td>Output</td>
+</tr>
+<tr>
+<td>RF1</td>
+<td>PuTTY UART RX</td>
+<td>Input</td>
+</tr>
+</tbody>
+</table>
 <h2 id="block-diagram">Block Diagram</h2>
 <p><img alt="Team 203 Microphone Board Block Diagram" src="../Individual.drawio.png" /></p>
 
