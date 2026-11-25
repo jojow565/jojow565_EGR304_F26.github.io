@@ -715,6 +715,33 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#power-supply-circuit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Power Supply Circuit
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#microphone-and-amplifier-circuit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Microphone and Amplifier Circuit
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#low-pass-filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      Low-Pass Filter
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#schematic" class="md-nav__link">
     <span class="md-ellipsis">
       Schematic
@@ -751,6 +778,33 @@
   <a href="#team-connector" class="md-nav__link">
     <span class="md-ellipsis">
       Team Connector
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-points" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test Points
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debugging-circuit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Debugging Circuit
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hardware-verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hardware Verification
     </span>
   </a>
   
@@ -802,6 +856,15 @@
   <a href="#design-status" class="md-nav__link">
     <span class="md-ellipsis">
       Design Status
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Related Documentation
     </span>
   </a>
   
@@ -1110,6 +1173,33 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#power-supply-circuit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Power Supply Circuit
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#microphone-and-amplifier-circuit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Microphone and Amplifier Circuit
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#low-pass-filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      Low-Pass Filter
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#schematic" class="md-nav__link">
     <span class="md-ellipsis">
       Schematic
@@ -1146,6 +1236,33 @@
   <a href="#team-connector" class="md-nav__link">
     <span class="md-ellipsis">
       Team Connector
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-points" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test Points
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debugging-circuit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Debugging Circuit
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hardware-verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hardware Verification
     </span>
   </a>
   
@@ -1202,6 +1319,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#related-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Related Documentation
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1227,27 +1353,128 @@
 
 <h1 id="microphone-subsystem-schematic">Microphone Subsystem Schematic</h1>
 <p><strong>EGR 304 | Team 203 | Joseph White</strong></p>
+<p><strong>Updated: November 25, 2026</strong></p>
 <h2 id="overview">Overview</h2>
 <p>This schematic represents the microphone detection subsystem designed for the EGR 304 automated cat-toy project at Arizona State University.</p>
-<p>The subsystem uses a class-supplied microphone, MCP6004 operational amplifier, adjustable 10 kΩ potentiometer, and PIC18F57Q43 Curiosity Nano microcontroller.</p>
+<p>The subsystem uses a class-supplied two-wire electret condenser microphone, a Microchip MCP6004-I/P operational amplifier, an adjustable 10 kΩ potentiometer, and a Microchip PIC18F57Q43 Curiosity Nano.</p>
+<p>The circuit was manufactured on a custom PCB, assembled, programmed, and tested during individual subsystem hardware verification.</p>
 <h2 id="circuit-components">Circuit Components</h2>
-<p>The schematic includes:</p>
 <ul>
-<li><strong>Power Supply:</strong> External 9–12 V DC input, 1 A fuse, and LM7805 linear voltage regulator providing a regulated 5 V supply.</li>
-<li><strong>Microphone:</strong> Class-supplied microphone for acoustic signal detection.</li>
-<li><strong>Operational Amplifier:</strong> MCP6004 for microphone signal amplification and conditioning.</li>
-<li><strong>Potentiometer:</strong> 10 kΩ adjustable potentiometer providing an approximately 2.5 V reference voltage.</li>
-<li><strong>Low-Pass Filter:</strong> Resistor-capacitor network for filtering the conditioned microphone signal.</li>
-<li><strong>Microcontroller:</strong> PIC18F57Q43 Curiosity Nano for ADC sampling and digital processing.</li>
-<li><strong>UART Interface:</strong> TX and RX connections for communication with the team's main controller.</li>
-<li><strong>Debugging Components:</strong> Pushbutton, indicator LEDs, and test points.</li>
+<li><strong>External Power Supply:</strong> Model 0930 AC/DC wall adapter providing 9 V DC at a rated 3 A.</li>
+<li><strong>Voltage Regulator:</strong> STMicroelectronics L7805ABV providing a regulated 5 V supply.</li>
+<li><strong>Input Protection:</strong> Replaceable 1 A fast-acting fuse.</li>
+<li><strong>Microphone:</strong> Class-supplied two-wire electret condenser microphone.</li>
+<li><strong>Operational Amplifier:</strong> Microchip MCP6004-I/P for microphone signal amplification and conditioning.</li>
+<li><strong>Potentiometer:</strong> XCHC Electron 3296W-103, 10 kΩ adjustable trimmer.</li>
+<li><strong>Low-Pass Filter:</strong> R9 and C5 for filtering the amplified microphone signal.</li>
+<li><strong>Microcontroller:</strong> Microchip PIC18F57Q43 Curiosity Nano for ADC sampling, DAC output, and digital processing.</li>
+<li><strong>UART Interface:</strong> Serial communication with other team subsystems and PuTTY debugging.</li>
+<li><strong>Debugging Components:</strong> Pushbutton, indicator LEDs, and six test points.</li>
 </ul>
+<h2 id="power-supply-circuit">Power Supply Circuit</h2>
+<p>The subsystem receives power through barrel jack J1.</p>
+<p>The external 9 V DC supply passes through a 1 A fuse before reaching the L7805ABV linear voltage regulator.</p>
+<p><strong>9 V DC → J1 → F1 → L7805ABV → Regulated 5 V</strong></p>
+<p>The regulated 5 V supply powers the microphone bias circuit, operational amplifier, microcontroller, and indicator LEDs.</p>
+<p>No additional 3.3 V regulator is included in the manufactured subsystem.</p>
+<h2 id="microphone-and-amplifier-circuit">Microphone and Amplifier Circuit</h2>
+<p>The electret condenser microphone is biased through resistor R6, which has a resistance of 2.2 kΩ.</p>
+<p>Capacitor C4 provides AC coupling between the microphone and the amplifier.</p>
+<p>The MCP6004 operational amplifier uses an inverting amplifier configuration.</p>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Value</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>R6</td>
+<td>2.2 kΩ</td>
+<td>Microphone bias</td>
+</tr>
+<tr>
+<td>C4</td>
+<td>0.1 µF</td>
+<td>AC coupling</td>
+</tr>
+<tr>
+<td>R4</td>
+<td>10 kΩ</td>
+<td>Input bias</td>
+</tr>
+<tr>
+<td>R5</td>
+<td>1 kΩ</td>
+<td>Amplifier input resistor</td>
+</tr>
+<tr>
+<td>R8</td>
+<td>100 kΩ</td>
+<td>Feedback resistor</td>
+</tr>
+<tr>
+<td>RV1</td>
+<td>10 kΩ</td>
+<td>Adjustable amplifier reference</td>
+</tr>
+<tr>
+<td>R11</td>
+<td>100 Ω</td>
+<td>Reference voltage divider</td>
+</tr>
+<tr>
+<td>R12</td>
+<td>100 Ω</td>
+<td>Reference voltage divider</td>
+</tr>
+</tbody>
+</table>
+<p>The nominal inverting-stage voltage gain is:</p>
+<div class="arithmatex">\[
+A_v=-\frac{R_8}{R_5}
+\]</div>
+<div class="arithmatex">\[
+A_v=-\frac{100000}{1000}=-100
+\]</div>
+<p>The R11 and R12 voltage divider provides a nominal 2.5 V reference.</p>
+<p>The RV1 potentiometer adjusts the non-inverting input voltage to establish the amplifier's DC operating point.</p>
+<h2 id="low-pass-filter">Low-Pass Filter</h2>
+<p>The amplified microphone signal passes through a resistor-capacitor low-pass filter before reaching RA0.</p>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Specified Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>R9</td>
+<td>220 Ω</td>
+</tr>
+<tr>
+<td>C5</td>
+<td>0.22 µF</td>
+</tr>
+</tbody>
+</table>
+<p>The nominal cutoff frequency is:</p>
+<div class="arithmatex">\[
+f_c=\frac{1}{2\pi RC}
+\]</div>
+<div class="arithmatex">\[
+f_c\approx3288\text{ Hz}
+\]</div>
+<p>The filter attenuates higher-frequency signals before analog-to-digital conversion.</p>
 <h2 id="schematic">Schematic</h2>
 <p>The complete microphone subsystem schematic is displayed below.</p>
 <p><img alt="EGR 304 Microphone Subsystem Schematic" src="../EGR304_JW_Microphone_Subsystem.svg" /></p>
-<p><strong>Figure 1:</strong> Complete microphone subsystem schematic showing power regulation, signal conditioning, microcontroller connections, and communication interface.</p>
+<p><strong>Figure 1:</strong> Microphone subsystem schematic showing power regulation, microphone amplification, low-pass filtering, microcontroller connections, debugging components, and the team communication interface.</p>
 <h3 id="pdf-version">PDF Version</h3>
-<p>The schematic is also available as a PDF for detailed viewing and printing.</p>
+<p>The schematic is available as a PDF for detailed viewing and printing.</p>
 <p><a href="../EGR304_JW_Microphone_Subsystem.pdf">View or Download Microphone Subsystem Schematic (PDF)</a></p>
 <h2 id="microcontroller-connections">Microcontroller Connections</h2>
 <table>
@@ -1255,6 +1482,7 @@
 <tr>
 <th>PIC Pin</th>
 <th>Signal</th>
+<th>Direction</th>
 <th>Purpose</th>
 </tr>
 </thead>
@@ -1262,47 +1490,81 @@
 <tr>
 <td>RA0</td>
 <td>RA0_ADC</td>
+<td>Input</td>
 <td>Conditioned microphone signal</td>
 </tr>
 <tr>
 <td>RA1</td>
 <td>INT_OUT</td>
-<td>Interrupt output</td>
+<td>Output</td>
+<td>Digital detection signal</td>
 </tr>
 <tr>
 <td>RA2</td>
 <td>DAC_OUT</td>
-<td>Analog output</td>
+<td>Output</td>
+<td>Analog DAC output</td>
 </tr>
 <tr>
 <td>RC6</td>
-<td>UART_TX</td>
-<td>Serial transmit</td>
+<td>UART1_TX</td>
+<td>Output</td>
+<td>Team serial transmit</td>
 </tr>
 <tr>
 <td>RC7</td>
-<td>UART_RX</td>
-<td>Serial receive</td>
+<td>UART1_RX</td>
+<td>Input</td>
+<td>Team serial receive</td>
 </tr>
 <tr>
 <td>RD1</td>
 <td>BTN</td>
-<td>Pushbutton input</td>
+<td>Input</td>
+<td>PCB pushbutton</td>
 </tr>
 <tr>
 <td>RD2</td>
 <td>LED</td>
-<td>Red indicator LED</td>
+<td>Output</td>
+<td>PCB red indicator LED</td>
+</tr>
+<tr>
+<td>RB4</td>
+<td>NANO_BUTTON</td>
+<td>Input</td>
+<td>Onboard Nano pushbutton</td>
+</tr>
+<tr>
+<td>RF3</td>
+<td>NANO_LED</td>
+<td>Output</td>
+<td>Onboard Nano yellow LED</td>
+</tr>
+<tr>
+<td>RF0</td>
+<td>UART3_TX</td>
+<td>Output</td>
+<td>PuTTY serial transmit</td>
+</tr>
+<tr>
+<td>RF1</td>
+<td>UART3_RX</td>
+<td>Input</td>
+<td>PuTTY serial receive</td>
 </tr>
 </tbody>
 </table>
+<p>UART1 and UART3 are configured for 9600 baud, eight data bits, no parity, and one stop bit.</p>
+<p>The onboard Nano pushbutton, LED, and USB serial interface are implemented on the Curiosity Nano development board.</p>
 <h2 id="team-connector">Team Connector</h2>
-<p>The subsystem uses an 8-pin connector for communication and integration with the other team subsystems.</p>
+<p>The subsystem uses an eight-pin connector, J3, for communication and integration with other team subsystems.</p>
 <table>
 <thead>
 <tr>
 <th>Connector Pin</th>
 <th>Signal</th>
+<th>Type</th>
 <th>Purpose</th>
 </tr>
 </thead>
@@ -1310,45 +1572,110 @@
 <tr>
 <td>1</td>
 <td>DAC_OUT</td>
-<td>Analog output</td>
+<td>Analog</td>
+<td>Assigned DAC output</td>
 </tr>
 <tr>
 <td>2</td>
 <td>RA0_ADC</td>
-<td>Microphone ADC signal</td>
+<td>Analog</td>
+<td>Conditioned microphone signal</td>
 </tr>
 <tr>
 <td>3</td>
 <td>UART_TX</td>
+<td>Digital</td>
 <td>Serial transmit</td>
 </tr>
 <tr>
 <td>4</td>
 <td>UART_RX</td>
+<td>Digital</td>
 <td>Serial receive</td>
 </tr>
 <tr>
 <td>5</td>
 <td>INT_OUT</td>
-<td>Interrupt output</td>
+<td>Digital</td>
+<td>Detection output</td>
 </tr>
 <tr>
 <td>6</td>
 <td>BTN</td>
-<td>Pushbutton</td>
+<td>Digital</td>
+<td>Pushbutton signal</td>
 </tr>
 <tr>
 <td>7</td>
 <td>LED</td>
-<td>Indicator LED</td>
+<td>Digital</td>
+<td>Indicator LED signal</td>
 </tr>
 <tr>
 <td>8</td>
 <td>GND</td>
 <td>Ground</td>
+<td>Common ground</td>
 </tr>
 </tbody>
 </table>
+<p>The connector assignments are based on the schematic. Final continuity and team interface compatibility must be confirmed before complete system integration.</p>
+<h2 id="test-points">Test Points</h2>
+<p>Six test points are included for circuit verification and troubleshooting.</p>
+<table>
+<thead>
+<tr>
+<th>Test Point</th>
+<th>Signal</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TP1</td>
+<td>+5V</td>
+<td>Regulated supply voltage</td>
+</tr>
+<tr>
+<td>TP2</td>
+<td>GND</td>
+<td>Common ground</td>
+</tr>
+<tr>
+<td>TP3</td>
+<td>Vref</td>
+<td>Nominal 2.5 V reference</td>
+</tr>
+<tr>
+<td>TP4</td>
+<td>V1</td>
+<td>Amplified microphone signal</td>
+</tr>
+<tr>
+<td>TP5</td>
+<td>ADC_IN</td>
+<td>Filtered ADC input signal</td>
+</tr>
+<tr>
+<td>TP6</td>
+<td>VIN</td>
+<td>External input voltage</td>
+</tr>
+</tbody>
+</table>
+<p>The pre-amplified microphone signal can be measured at MK1 pin 1.</p>
+<p>The amplified microphone signal can be measured at TP4, and the ADC input signal can be measured at TP5.</p>
+<h2 id="debugging-circuit">Debugging Circuit</h2>
+<p>The PCB includes a momentary pushbutton and red indicator LED.</p>
+<p>The pushbutton is connected to RD1 and operates as an active-low digital input.</p>
+<p>The red LED is connected to RD2 and operates as an active-high digital output.</p>
+<p>The verification firmware illuminates the red LED when the PCB pushbutton is pressed.</p>
+<p>The onboard Curiosity Nano pushbutton and yellow LED operate independently of the PCB debugging circuit.</p>
+<h2 id="hardware-verification">Hardware Verification</h2>
+<p>The microphone subsystem was manufactured, assembled, programmed, and tested.</p>
+<p>The verification firmware reads the amplified microphone signal using the 12-bit ADC on RA0 and converts the reading into an 8-bit value for analog reproduction through the DAC on RA2.</p>
+<p>Individual subsystem hardware verification was demonstrated to the instructor on November 25, 2026.</p>
+<p><a href="../../07-Microcontroller-Code/microcontroller-code/">View Microcontroller Code</a></p>
 <h2 id="resources">Resources</h2>
 <h3 id="schematic-pdf">Schematic PDF</h3>
 <p><a href="../EGR304_JW_Microphone_Subsystem.pdf">Download Schematic (PDF)</a></p>
@@ -1357,10 +1684,18 @@
 <h3 id="kicad-project-files">KiCad Project Files</h3>
 <p><a href="../EGR304_JW_Microphone_Subsystem.zip">Download KiCad Project (ZIP)</a></p>
 <h2 id="design-status">Design Status</h2>
-<p>The schematic documents the microphone subsystem's preliminary external design review configuration.</p>
-<p>The design uses a single regulated 5 V supply and includes the class-supplied microphone and adjustable reference potentiometer.</p>
-<p>Final hardware operation will be verified during circuit assembly and testing.
-```</p>
+<p><strong>Individual Hardware Verification Complete</strong></p>
+<p>The microphone subsystem has completed PCB manufacturing, component assembly, firmware development, and individual hardware verification.</p>
+<p>Final team communication and complete system integration remain separate development activities.</p>
+<h2 id="related-documentation">Related Documentation</h2>
+<ul>
+<li><a href="../../01-Block-Diagram/Block-Diagram/">Block Diagram</a></li>
+<li><a href="../../02-Component-Selection/Component-Selection/">Component Selection</a></li>
+<li><a href="../../03-BOM/BOM/">Bill of Materials</a></li>
+<li><a href="../../05-Power-Budget/Power-Budget/">Power Budget</a></li>
+<li><a href="../../06-PCB-Design/pcb-design/">PCB Design</a></li>
+<li><a href="../../07-Microcontroller-Code/microcontroller-code/">Microcontroller Code</a></li>
+</ul>
 
 
 
