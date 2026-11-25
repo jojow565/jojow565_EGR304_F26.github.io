@@ -1,254 +1,379 @@
 ---
 title: Component Selection
+tags:
+- component selection
+- microphone
 ---
 
 # Component Selection — Microphone Subsystem
 
-**EGR 304 | Team 203 | Individual subsystem: Microphone**
+**EGR 304 | Team 203 | Joseph White**
+
+**Updated: November 25, 2026**
 
 ## Introduction
 
-The microphone subsystem detects sound for the team's interactive cat-toy project. An analog microphone feeds a signal-conditioning amplifier, which supplies the RA0 ADC input on the PIC18F57Q43 Curiosity Nano. The subsystem uses the team's planned 9 V input and regulated 5 V supply.
+The microphone subsystem detects sound for the team's interactive cat-toy project. An analog electret condenser microphone feeds a signal-conditioning amplifier and low-pass filter, which supplies the RA0 ADC input on the PIC18F57Q43 Curiosity Nano.
 
-Components were evaluated for analog interface compatibility, power consumption, PCB integration, cost, and audio performance.
+The subsystem uses an external 9 V DC wall adapter and an STMicroelectronics L7805ABV voltage regulator to provide a regulated 5 V supply.
 
-**The microphone needs a separate lower-voltage supply; it cannot be connected directly to 5 V.**
-
-> **Design status:** The microphone choice is provisional until the schematic, PCB assembly method, and 3.3 V supply are confirmed. Prices are indicative single-unit prices and should be checked before ordering.
+Components were evaluated based on electrical compatibility, power consumption, PCB integration, cost, availability, and audio performance.
 
 ---
 
 ## 1. Microphone Selection
 
-**Microphone / Acoustic Sensing**
+The following microphones were evaluated during the preliminary design phase.
 
-*Table 1: Component selection comparison*
-
-| **Solution** | **Pros** | **Cons** |
-| :--- | :--- | :--- |
-| ![Option 1 product photograph](../image/mic_option_1.jpg)<br>**Option 1 — 3S 3SM121MZB1UA**.<br>Analog MEMS, 6-pin LGA; approximately **$1.16 each**.<br>[DigiKey product](https://www.digikey.com/en/products/detail/3s-solid-state-system/3SM121MZB1UA/21720805).<br>[Datasheet](https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/5854/3SM121MZB1UA.pdf). | 66 dBA SNR<br>• Low 80 µA typical supply current<br>• Single-ended analog output simplifies signal conditioning<br>• Larger body than Option 2. | 1.6–3.6 V supply **not compatible with direct 5 V**<br>• Bottom acoustic port requires PCB opening<br>• LGA package is difficult to hand solder<br>• Additional regulated supply required. |
-| ![Option 2 product photograph](../image/mic_option_2.jpg)<br>**Option 2 — 3S 3SM122KZB1VD-002-R**.<br>Analog MEMS, 4-pin LGA; approximately **$1.06 each**.<br>[DigiKey product](https://www.digikey.com/en/products/detail/3s-solid-state-system/3SM122KZB1VD-002-R/21720794). | Very small 2.75 × 1.85 mm footprint<br>• 80 µA typical supply current<br>• Single-ended analog output<br>• Omnidirectional detection. | Lower 64 dBA SNR<br>• Requires lower-voltage rail<br>• Small LGA package is difficult to assemble manually<br>• Sensitive to acoustic-port contamination. |
-| ![Option 3 product photograph](../image/mic_option_3.jpg)<br>**Option 3 — Syntiant SPH11C3LR5H-1**.<br>Differential analog MEMS, 5-pin LGA; approximately **$2.12 each**.<br>[DigiKey product](https://www.digikey.com/en/products/detail/syntiant/SPH11C3LR5H-1/17878607). | Best normal-mode SNR of the three (68.5 dBA)<br>• Differential output improves noise rejection<br>• Wide audio frequency response<br>• High acoustic overload tolerance. | Higher current (~200–205 µA)<br>• Differential output complicates signal conditioning<br>• 2.4–3.2 V normal-mode supply<br>• Bottom-port LGA requires careful assembly. |
+| Solution | Pros | Cons |
+|---|---|---|
+| ![Option 1](../image/mic_option_1.jpg)<br>**3S 3SM121MZB1UA**<br>Analog MEMS microphone<br>[DigiKey](https://www.digikey.com/en/products/detail/3s-solid-state-system/3SM121MZB1UA/21720805) | 66 dBA SNR<br>Low power consumption<br>Single-ended analog output | Requires 1.6–3.6 V supply<br>Small LGA package<br>Requires additional voltage regulation |
+| ![Option 2](../image/mic_option_2.jpg)<br>**3S 3SM122KZB1VD-002-R**<br>Analog MEMS microphone<br>[DigiKey](https://www.digikey.com/en/products/detail/3s-solid-state-system/3SM122KZB1VD-002-R/21720794) | Small footprint<br>Low power consumption<br>Single-ended output | Requires lower-voltage supply<br>Difficult to hand solder |
+| ![Option 3](../image/mic_option_3.jpg)<br>**Syntiant SPH11C3LR5H-1**<br>Differential analog MEMS microphone<br>[DigiKey](https://www.digikey.com/en/products/detail/syntiant/SPH11C3LR5H-1/17878607) | High SNR<br>Good noise rejection<br>Wide audio frequency response | Differential output increases circuit complexity<br>Requires lower-voltage supply |
+| **Option 4 — Existing two-wire electret condenser microphone** | Already available<br>Simple analog interface<br>Easy to assemble<br>No separate 3.3 V regulator required in the implemented circuit | Manufacturer and exact part number unidentified<br>Electrical specifications are not fully documented |
 
 ### Selected Microphone
 
-**Choice (provisional): Option 1 — 3SM121MZB1UA.**
+**Choice: Option 4 — Two-wire electret condenser microphone.**
 
-Option 1 balances low supply current and noise performance while retaining a single-ended analog output that can be conditioned by the MCP6004 and sampled by RA0.
+The original MEMS microphone options required additional voltage regulation and more complicated PCB assembly.
 
-Compared with Option 2, it provides 2 dB better SNR for the same typical current. It also avoids the differential-output interface complexity of Option 3.
+The existing electret condenser microphone was selected because it was already available and could be integrated into the analog signal-conditioning circuit using a simple resistive bias network.
 
-A regulated 3.3 V microphone supply and appropriate signal-conditioning network must be incorporated into the final design.
+| Characteristic | Selected Component |
+|---|---|
+| Microphone type | Electret condenser |
+| Output | Analog |
+| Connections | Two-wire |
+| Manufacturer | Unidentified |
+| Part number | Unidentified |
+| Bias supply | 5 V rail through 2.2 kΩ resistor |
+| Schematic reference | MK1 |
+| Availability | Owned |
 
-### Electrical Comparison
+The microphone is biased through resistor R6. Capacitor C4 provides AC coupling between the microphone and amplifier circuit.
 
-| Characteristic | Option 1 | Option 2 | Option 3 |
-| --- | ---: | ---: | ---: |
-| Supply voltage | 1.6–3.6 V | 1.6–3.6 V | 2.4–3.2 V |
-| Typical current | 80 µA | 80 µA | 200–205 µA |
-| Signal-to-noise ratio | 66 dBA | 64 dBA | 68.5 dBA |
-| Sensitivity | −38 dBV/Pa | −38 dBV/Pa | −38 dBV/Pa |
-| Output | Single-ended | Single-ended | Differential |
-| Dimensions | 3.76 × 3.00 × 1.10 mm | 2.75 × 1.85 × 0.90 mm | 3.50 × 2.65 × 1.00 mm |
-
-**Datasheet evidence:** Option 1, page 4; Option 2, page 4; Option 3, pages 2 and 6.
+The selected microphone was installed on the manufactured subsystem and tested during hardware verification.
 
 ---
 
 ## 2. Operational Amplifier / Signal Conditioning
 
-**Operational Amplifier / Signal Conditioning**
-
-*Table 2: Component selection comparison*
-
-| **Solution** | **Pros** | **Cons** |
-| :--- | :--- | :--- |
-| ![Option 1 photograph](../image/opamp_option_1.webp)<br>**Option 1 — Microchip MCP6004-I/P**.<br>Quad rail-to-rail op-amp, 14-PDIP; approximately **$0.60 each**.<br>[DigiKey product](https://www.digikey.com/en/products/detail/microchip-technology/MCP6004-I-P/523060). | Operates from 1.8–6 V<br>• Compatible with 5 V rail<br>• Rail-to-rail input/output<br>• Four amplifier channels<br>• Low ~100 µA typical current per channel. | Four channels may be unnecessary<br>• 1 MHz gain-bandwidth product<br>• 14-pin DIP requires more PCB space. |
-| ![Option 2 photograph](../image/opamp_option_2.webp)<br>**Option 2 — Microchip MCP6002-I/P**.<br>Dual rail-to-rail op-amp, 8-PDIP; approximately **$0.45 each**.<br>[DigiKey product](https://www.digikey.com/en/products/detail/microchip-technology/MCP6002-I-P/500875). | Same 1.8–6 V supply range<br>• Smaller and less expensive<br>• Low power consumption. | Only two channels<br>• Requires schematic and pinout changes<br>• Limited high-frequency performance. |
-| ![Option 3 photograph](../image/opamp_option_3.webp)<br>**Option 3 — Texas Instruments LM324AN**.<br>Quad general-purpose op-amp, 14-PDIP; approximately **$0.57 each**.<br>[DigiKey product](https://www.digikey.com/en/products/detail/texas-instruments/LM324AN/412056). | Four channels<br>• Inexpensive<br>• Familiar architecture<br>• Single-supply operation. | Output is not rail-to-rail<br>• Higher input bias current<br>• Reduced signal swing near positive supply rail. |
+| Solution | Pros | Cons |
+|---|---|---|
+| ![Option 1](../image/opamp_option_1.webp)<br>**Microchip MCP6004-I/P**<br>Quad operational amplifier, DIP-14<br>[DigiKey](https://www.digikey.com/en/products/detail/microchip-technology/MCP6004-I-P/523060) | Operates from 1.8–6 V<br>Compatible with 5 V supply<br>Rail-to-rail input and output<br>Low current consumption | Four amplifier channels may be unnecessary<br>1 MHz gain-bandwidth product |
+| ![Option 2](../image/opamp_option_2.webp)<br>**Microchip MCP6002-I/P**<br>Dual operational amplifier, DIP-8<br>[DigiKey](https://www.digikey.com/en/products/detail/microchip-technology/MCP6002-I-P/500875) | Smaller package<br>Low power consumption<br>Rail-to-rail operation | Only two amplifier channels<br>Requires schematic and footprint changes |
+| ![Option 3](../image/opamp_option_3.webp)<br>**Texas Instruments LM324AN**<br>Quad operational amplifier, DIP-14 | Inexpensive<br>Four amplifier channels<br>Single-supply operation | Not rail-to-rail<br>Reduced output swing near positive supply rail |
 
 ### Selected Operational Amplifier
 
-**Choice: Option 1 — MCP6004.**
+**Choice: Microchip MCP6004-I/P.**
 
-The MCP6004 supports operation from the regulated 5 V rail and provides rail-to-rail input/output capability.
+The MCP6004 was selected because it operates from the regulated 5 V supply and provides rail-to-rail input and output capability.
 
-Its low current consumption and four available amplifier channels make it suitable for conditioning the microphone signal before conversion by the PIC ADC.
+The amplifier increases the microphone signal amplitude before the signal is passed through the low-pass filter and sampled by the microcontroller ADC.
 
-The additional channels provide flexibility for amplification and filtering.
+| Characteristic | Specification |
+|---|---|
+| Manufacturer | Microchip Technology |
+| Part number | MCP6004-I/P |
+| Package | DIP-14 |
+| Supply voltage | 5 V in this subsystem |
+| Amplifier channels | 4 |
+| Gain-bandwidth product | 1 MHz |
+| Schematic reference | U3 |
 
-The final component package and PCB footprint must match the selected manufacturing method.
+[Manufacturer Datasheet](https://www.microchip.com/en-us/product/MCP6004)
 
-> **Photo note:** Images for options 2 and 3 are representative package photographs.
+### Amplifier and Filter Configuration
+
+The microphone amplifier uses an inverting configuration with a 1 kΩ input resistor and a 100 kΩ feedback resistor.
+
+The nominal inverting-stage voltage gain is:
+
+$$
+A_v=-\frac{R_8}{R_5}
+=-\frac{100000}{100}
+\times\frac{100}{1000}
+=-100
+$$
+
+A 10 kΩ potentiometer provides an adjustable reference voltage for the non-inverting input.
+
+The low-pass filter consists of resistor R9 and capacitor C5.
+
+| Component | Value |
+|---|---|
+| R9 | 220 Ω |
+| C5 | 0.22 µF |
+
+The nominal low-pass filter cutoff frequency is:
+
+$$
+f_c=\frac{1}{2\pi RC}
+$$
+
+$$
+f_c=\frac{1}{2\pi(220)(0.22\times10^{-6})}
+\approx3288\text{ Hz}
+$$
 
 ---
 
 ## 3. Power Regulation
 
-**5 V Voltage Regulator**
+The microphone subsystem requires a regulated 5 V supply.
 
-The block diagram specifies a 9 V, 3 A unregulated source and a regulated 5 V, 1.5 A output.
+Three voltage regulator options were evaluated.
 
-The microphone requires an additional supply below 3.6 V.
-
-*Table 3: Component selection comparison*
-
-| **Solution** | **Pros** | **Cons** |
-| :--- | :--- | :--- |
-| ![Option 1 regulator](../image/regulator_option_1.webp)<br>**Option 1 — STMicroelectronics L7805CV**.<br>5 V linear regulator, TO-220, nominal 1.5 A; approximately **$1.08 each**.<br>[DigiKey product](https://www.digikey.com/en/products/detail/stmicroelectronics/L7805CV/585964). | Meets nominal 5 V / 1.5 A target<br>• Simple linear design<br>• Through-hole package<br>• Thermal protection. | Dissipates heat proportional to input-output voltage difference<br>• 6 W dissipation at 1.5 A from 9 V<br>• Does not provide 3.3 V microphone supply. |
-| ![Option 2 regulator](../image/regulator_option_2.webp)<br>**Option 2 — Traco Power TSR 1-2450**.<br>5 V switching regulator, 1 A maximum; approximately **$6.28 each**.<br>[DigiKey product](https://www.digikey.com/en/products/detail/traco-power/TSR-1-2450/9383780). | Lower heat dissipation<br>• Wide 6.5–36 V input range<br>• Convenient 3-pin package. | Only 1 A maximum<br>• Higher cost<br>• Switching noise may require additional filtering. |
+| Solution | Pros | Cons |
+|---|---|---|
+| **Option 1 — STMicroelectronics L7805ABV**<br>5 V linear regulator<br>TO-220 package | Already available<br>Simple circuit design<br>Low output noise<br>Through-hole assembly<br>Up to 1.5 A with appropriate operating conditions | Linear regulator produces heat<br>Requires adequate input voltage and thermal management |
+| ![Option 2](../image/regulator_option_2.webp)<br>**Traco Power TSR 1-2450**<br>5 V switching regulator<br>[DigiKey](https://www.digikey.com/en/products/detail/traco-power/TSR-1-2450/9383780) | High efficiency<br>Lower heat dissipation<br>Wide input voltage range | Higher cost<br>1 A maximum output<br>Possible switching noise |
+| **Option 3 — Texas Instruments LM7805CT/NOPB**<br>5 V linear regulator<br>TO-220 package | Simple circuit design<br>Through-hole package<br>Similar functionality to selected regulator | Produces heat during operation<br>Requires thermal management<br>Would require purchasing another component |
 
 ### Selected Voltage Regulator
 
-**Choice (provisional): Option 1 — L7805CV.**
+**Choice: STMicroelectronics L7805ABV.**
 
-The L7805CV meets the nominal 5 V, 1.5 A requirement and provides a straightforward linear regulation solution.
+The L7805ABV was selected because it was already available, provides a regulated 5 V output, and can be integrated into the PCB using a simple through-hole footprint.
 
-However, the regulator's current rating does not guarantee full-load operation without adequate thermal management.
+| Characteristic | Specification |
+|---|---|
+| Manufacturer | STMicroelectronics |
+| Part number | L7805ABV |
+| Regulator type | Linear |
+| Output voltage | 5 V |
+| Rated output current | Up to 1.5 A, subject to thermal limitations |
+| Package | TO-220 |
+| Subsystem input voltage | 9 V DC nominal |
+| Schematic reference | U1 |
+| Availability | Owned |
 
-At 9 V input and 1.5 A output:
+[STMicroelectronics L78 Series Datasheet](https://www.st.com/resource/en/datasheet/l78.pdf)
 
-\[
-P = (9 - 5)(1.5) = 6\text{ W}
-\]
+### Thermal Considerations
 
-The actual microphone subsystem current is expected to be substantially lower. The final current requirement will be determined through the power budget.
+Linear regulator power dissipation is approximately:
 
-### Additional 3.3 V Regulation
+$$
+P=(V_{IN}-V_{OUT})I_{OUT}
+$$
 
-The selected microphone requires a lower-voltage supply.
+At an example subsystem current of 100 mA:
 
-A possible regulator is the **STMicroelectronics LD1117V33**, which provides a nominal 3.3 V output.
+$$
+P=(9-5)(0.1)=0.4\text{ W}
+$$
 
-[DigiKey product](https://www.digikey.com/en/products/detail/stmicroelectronics/LD1117V33/586012)
+Actual regulator power dissipation depends on the measured subsystem current.
 
-The regulator selection remains provisional until the power architecture and required capacitors are verified.
+### 3.3 V Regulation
 
----
+A separate 3.3 V regulator was considered during preliminary design because the original MEMS microphone candidates required a lower supply voltage.
 
-## 4. Interface and Power Considerations
-
-The microphone subsystem interfaces with the PIC18F57Q43 Curiosity Nano and the other team subsystems.
-
-### Signal Path
-
-1. The analog MEMS microphone detects acoustic signals.
-2. The MCP6004 operational amplifier conditions the microphone output.
-3. The conditioned signal is connected to RA0.
-4. The PIC ADC converts the analog signal into digital data.
-5. The microcontroller processes the signal and communicates with the other subsystems.
-
-### Power Requirements
-
-- External supply: 9 V DC nominal.
-- Main regulated supply: 5 V.
-- Microphone supply: 3.3 V proposed.
-- Operational amplifier: 5 V.
-- PIC18F57Q43: powered according to the Curiosity Nano configuration.
-
-The power budget must account for the microcontroller, microphone, amplifier, regulator quiescent currents, and additional powered components.
-
-A 25% current margin will be included in the power calculations.
-
-### PCB Considerations
-
-The selected microphone uses a bottom acoustic port.
-
-The PCB design must include the appropriate acoustic opening and manufacturer-recommended footprint.
-
-The final design must also address the team's rechargeable-power requirement.
+The final implemented design uses an electret condenser microphone with a resistive bias circuit. Therefore, a separate 3.3 V regulator is not included in the manufactured subsystem.
 
 ---
 
-## 5. MPLAB Code Configurator (MCC)
+## 4. External Power Supply
 
-### Microcontroller Configuration
+Three external power supply approaches were considered.
 
-The Microchip PIC18F57Q43 Curiosity Nano was configured using MPLAB Code Configurator (MCC) in MPLAB X IDE v6.35.
+| Solution | Pros | Cons |
+|---|---|---|
+| **Option 1 — Model 0930, 9 V DC / 3 A wall adapter** | Already available<br>Compatible with barrel jack<br>Provides sufficient input voltage for L7805ABV<br>Continuous power during testing | Requires AC wall outlet<br>Not portable |
+| **Option 2 — 12 V DC wall adapter** | Commonly available<br>Provides adequate regulator input voltage | Increases linear regulator heat dissipation<br>Requires AC wall outlet |
+| **Option 3 — 9 V battery supply** | Portable<br>No wall outlet required | Limited operating time<br>Reduced current capability<br>Requires battery replacement or charging |
 
-MCC was used to assign the analog and digital pins required for microphone signal acquisition, pushbutton input, LED control, and communication with other team subsystems.
+### Selected External Power Supply
 
-The following peripherals were configured:
+**Choice: Model 0930 AC/DC wall adapter.**
 
-- **ADC:** Analog input for microphone signal acquisition.
-- **DAC1:** Analog output on RA2.
-- **UART1:** Serial communication with other team subsystems.
-- **GPIO:** Digital inputs and outputs for the interrupt signal, pushbutton, and LED.
+The selected adapter was already available and provides the nominal 9 V DC input required by the microphone subsystem.
+
+| Characteristic | Specification |
+|---|---|
+| Manufacturer | Unbranded |
+| Model | 0930 |
+| Type | AC/DC wall adapter |
+| AC input | 100–240 VAC |
+| Input frequency | 50/60 Hz |
+| DC output | 9 V |
+| Rated output current | 3 A |
+| Rated output power | 27 W |
+| Barrel connector polarity | Center positive |
+| Availability | Owned |
+
+The external power supply connects to barrel jack J1. A 1 A fuse provides input protection before power reaches the L7805ABV voltage regulator.
+
+### Power Architecture
+
+**9 V DC Wall Adapter → J1 → 1 A Fuse → L7805ABV → Regulated 5 V Supply**
+
+The regulated 5 V supply powers the microphone bias circuit, operational amplifier, microcontroller, and indicator LEDs.
+
+---
+
+## 5. Microcontroller Selection
+
+**Selected Microcontroller: Microchip PIC18F57Q43 Curiosity Nano**
+
+The PIC18F57Q43 Curiosity Nano is the development board used for the microphone subsystem.
+
+| Characteristic | Specification |
+|---|---|
+| Manufacturer | Microchip Technology |
+| Microcontroller | PIC18F57Q43 |
+| Development board | Curiosity Nano |
+| Configured clock frequency | 64 MHz |
+| ADC resolution | 12-bit |
+| DAC resolution | 8-bit |
+| Communication | UART |
+| Programming interface | USB onboard debugger |
+| Schematic reference | U2 |
+
+[Microchip PIC18F57Q43 Product Information](https://www.microchip.com/en-us/product/PIC18F57Q43)
+
+---
+
+## 6. MPLAB Code Configurator (MCC)
+
+The PIC18F57Q43 Curiosity Nano was configured using MPLAB Code Configurator in MPLAB X IDE v6.35.
+
+### Configured Peripherals
+
+- ADC: Microphone signal acquisition on RA0.
+- DAC1: Analog signal reproduction on RA2.
+- UART1: Team subsystem communication.
+- UART3: USB serial debugging through PuTTY.
+- GPIO: Pushbuttons, LEDs, and digital output.
+
+### ADC Configuration
+
+| Parameter | Configuration |
+|---|---|
+| Input channel | ANA0 / RA0 |
+| Resolution | 12-bit |
+| Positive reference | VDD |
+| Negative reference | VSS |
+| Result alignment | Right |
+| Computation mode | Basic |
+| ADC clock | 1 MHz |
+| Acquisition count | 10 |
+
+### DAC Configuration
+
+| Parameter | Configuration |
+|---|---|
+| Peripheral | DAC1 |
+| Output pin | RA2 |
+| Resolution | 8-bit |
+| Positive reference | VDD |
+| Negative reference | VSS |
 
 ### UART Configuration
 
-UART1 was configured with the following settings:
-
-| Parameter | Configuration |
-| --- | --- |
-| Peripheral | UART1 |
-| Baud rate | 9600 |
-| Parity | None |
-| TX pin | RC6 |
-| RX pin | RC7 |
-| Team connector TX | Pin 3 |
-| Team connector RX | Pin 4 |
-
-The UART pin assignments follow the team's agreed connector configuration.
+| Parameter | Team Communication | PuTTY Debugging |
+|---|---|---|
+| Peripheral | UART1 | UART3 |
+| Baud rate | 9600 | 9600 |
+| Data bits | 8 | 8 |
+| Stop bits | 1 | 1 |
+| Parity | None | None |
+| TX pin | RC6 | RF0 |
+| RX pin | RC7 | RF1 |
+| Flow control | None | None |
+| STDIO redirect | Disabled | Enabled |
 
 ### MCC Pin Assignments
 
-*Table 4: PIC18F57Q43 MCC pin configuration*
-
 | PIC Pin | Peripheral | Direction | Custom Name | Function |
-| --- | --- | --- | --- | --- |
+|---|---|---|---|---|
 | RA0 | ADC | Input | IO_RA0 | Microphone analog input |
-| RA1 | GPIO | Output | INT_OUT | Interrupt output |
+| RA1 | GPIO | Output | INT_OUT | Digital detection output |
 | RA2 | DAC1 | Output | IO_RA2 | Analog output |
-| RC6 | UART1 | Output | IO_RC6 | UART transmit |
-| RC7 | UART1 | Input | IO_RC7 | UART receive |
-| RD1 | GPIO | Input | BUTTON | Pushbutton |
-| RD2 | GPIO | Output | RED_LED | Red LED |
+| RC6 | UART1 | Output | IO_RC6 | Team UART transmit |
+| RC7 | UART1 | Input | IO_RC7 | Team UART receive |
+| RD1 | GPIO | Input | BUTTON | PCB pushbutton |
+| RD2 | GPIO | Output | RED_LED | PCB red LED |
+| RB4 | GPIO | Input | NANO_BUTTON | Nano pushbutton |
+| RF3 | GPIO | Output | NANO_LED | Nano yellow LED |
+| RF0 | UART3 | Output | IO_RF0 | PuTTY transmit |
+| RF1 | UART3 | Input | IO_RF1 | PuTTY receive |
 
-RA0 and RA2 are configured as analog pins.
-
-The UART and GPIO pins are configured as digital signals.
+RA0 and RA2 are configured as analog pins. All UART and remaining GPIO pins are configured as digital signals.
 
 ### MCC Pin Configuration Screenshot
 
-The following screenshot shows the configured PIC18F57Q43 pins in MPLAB Code Configurator.
+The following screenshot documents the original MCC pin configuration. The updated pin assignments are listed in the table above.
 
 ![MCC Pin Configuration](MCC_Pin_Configuration.png)
 
-### Configuration Summary
+---
 
-The MCC configuration establishes the microcontroller pin assignments for the microphone detection subsystem.
+## 7. Team Connector Configuration
 
-The ADC receives the conditioned microphone signal through RA0. UART1 provides communication through RC6 and RC7.
+The microphone subsystem includes an eight-pin connector for interfacing with other team subsystems.
 
-RA1 provides a digital interrupt output, RD1 receives the pushbutton input, and RD2 controls the red LED.
+| Connector Pin | Signal | Signal Type |
+|---|---|---|
+| 1 | DAC_OUT | Analog |
+| 2 | RA0_ADC | Analog |
+| 3 | UART_TX | Digital |
+| 4 | UART_RX | Digital |
+| 5 | INT_OUT | Digital |
+| 6 | BTN | Digital |
+| 7 | LED | Digital |
+| 8 | GND | Common ground |
 
-The configuration was created in the Microphone_Lab project using MPLAB Code Configurator.
+These assignments represent the designated connector signals. Final physical connections and team communication compatibility must be confirmed during team integration.
 
-Firmware operation and complete hardware integration will require further verification.
+---
+
+## 8. Hardware Verification
+
+The custom microphone subsystem PCB was manufactured, assembled, programmed, and tested.
+
+The microcontroller verification firmware performs the following functions:
+
+- Reads the amplified microphone signal using RA0.
+- Converts the 12-bit ADC reading to an 8-bit DAC value.
+- Reproduces the analog signal using the DAC.
+- Transmits microphone readings using UART1.
+- Provides ADC and DAC readings through PuTTY.
+- Controls the PCB red LED using the PCB pushbutton.
+- Controls the Nano LED using the Nano pushbutton.
+
+Individual subsystem hardware verification was demonstrated to the instructor.
+
+Final team communication and integration remain separate development activities.
+
+[Microcontroller Code](../07-Microcontroller-Code/microcontroller-code.md)
 
 ---
 
 ## Conclusion
 
-The selected microphone candidate is the **3SM121MZB1UA**, which provides 66 dBA signal-to-noise ratio, low current consumption, and a single-ended analog output.
+The final microphone subsystem uses an electret condenser microphone, Microchip MCP6004-I/P operational amplifier, STMicroelectronics L7805ABV voltage regulator, and Microchip PIC18F57Q43 Curiosity Nano.
 
-The **MCP6004** was selected for signal conditioning because of its low-power operation, rail-to-rail capability, and compatibility with the regulated 5 V supply.
+The subsystem is powered by a model 0930 external 9 V DC wall adapter.
 
-The **L7805CV** is the preliminary 5 V voltage regulator selection.
+The final component selection eliminates the need for a separate 3.3 V voltage regulator and simplifies PCB assembly.
 
-The PIC18F57Q43 Curiosity Nano was configured in MCC with ADC, DAC, UART, and GPIO functions required for the microphone subsystem.
-
-The remaining design considerations include finalizing the microphone's 3.3 V supply, confirming PCB footprints, and verifying the complete circuit.
+The manufactured subsystem has completed individual hardware verification. The remaining project activities involve final team communication and system integration.
 
 ---
 
 ## References
 
-1. Solid State System, *3SM121MZB1UA MEMS Microphone IC Datasheet*, version 2.1, April 2023.
-2. Solid State System, *3SM122KZB1VD-002-R MEMS Microphone IC Datasheet*, version 1.3, April 2023.
-3. Syntiant, *SPH11C3LR5H-1 FALCON Datasheet*, revision A-1, November 2024.
-4. Microchip Technology, *PIC18F57Q43 Microcontroller Documentation*.
-5. Microchip Technology, *MPLAB Code Configurator (MCC)*.
-6. DigiKey product listings linked in the component comparison tables.
-7. EGR 304, *Individual — Component Selection* assignment instructions.
+1. Solid State System, 3SM121MZB1UA MEMS Microphone Datasheet.
+2. Solid State System, 3SM122KZB1VD-002-R MEMS Microphone Datasheet.
+3. Syntiant, SPH11C3LR5H-1 FALCON Datasheet.
+4. Microchip Technology, MCP6004 Operational Amplifier Datasheet.
+5. Microchip Technology, PIC18F57Q43 Microcontroller Documentation.
+6. STMicroelectronics, L78 Series Voltage Regulator Datasheet.
+7. Traco Power, TSR 1 Series Switching Regulator Documentation.
+8. Texas Instruments, LM7805 Series Voltage Regulator Documentation.
+9. Model 0930 AC/DC adapter manufacturer label.
+10. EGR 304 Individual Component Selection assignment instructions.
